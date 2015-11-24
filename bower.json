@@ -1,0 +1,22 @@
+{
+  "name": "material-frontend",
+  "version": "0.0.0",
+  "authors": [
+    "nemtarev <thinkandwin5000@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "homepage": "https://github.com/tantalproxy/angular-matter",
+  "dependencies": {
+    "angular-material": "~0.11.4",
+    "angular-route": "~1.4.8",
+    "angular-ui-grid": "~3.0.7",
+    "angular": "~1.4.8"
+  }
+}
