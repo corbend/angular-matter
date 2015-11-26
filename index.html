@@ -5,6 +5,7 @@
 	<meta name="viewport" content="initial-scale=1" />
 	<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
 	<link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css">
+	<link rel="stylesheet" href="css/main.css">
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="bower_components/angular-route/angular-route.min.js"></script>
 	<script src="bower_components/angular-animate/angular-animate.min.js"></script>
@@ -19,13 +20,45 @@
 	<div layout="row" flex ng-controller="mainCtrl">
 		{{test}}
 		<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-4dp" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-			<md-button class="md-accent">Категории</md-button>
-      		<md-button class="md-accent">Продукция</md-button>
+			<md-button class="md-raised md-accent">Категории</md-button>
+      		<md-button class="md-raised md-accent">Продукция</md-button>
 		</md-sidenav>
 	
 		<div layout="column" flex id="content">
-			<md-content layout="column" flex class="md-padding">
+			<md-toolbar>
+				<div class="md-toolbar-tools">
+					<md-button class="md-button md-icon-button" md-ink-ripple>
+						<md-icon md-font-icon="reorder">
+						</md-icon>
+					</md-button>
+					<h2 hide-sm flex>
+						<span ng-repeat="crumb in breadcrumbs.crumbs">
+							<span>{{crumb}}</span>
+							<md-icon ng-if="!$last">></md-icon>
+						</span>
+					</h2>
+				</div>
+			</md-toolbar>
+			<md-content layout="column" flex class="md-padding md-whiteframe-z1">
 				<ng-include src="'/partials/grid.html'"></ng-include>
+				<md-card>
+					<md-card-content>
+						<div class="content-padded">
+            				<h2 class="md-title">Card Title</h2>
+            				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, distinctio minus nostrum aut magni ipsam, eius ipsa eos voluptate natus excepturi qui numquam velit non explicabo molestias quasi sunt veniam.</p>
+        				</div>
+						<md-divider>
+						</md-divider>
+						<div class="card-toolbar">
+							<md-button>Создать
+							</md-button>
+							<md-button>Редактировать
+							</md-button>
+							<md-button ng-click="showConfirm($event)">Удалить
+							</md-button>
+						</div>
+					</md-card-content>
+				</md-card>
 			</md-content>
 		</div>
 	</div>
